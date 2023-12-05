@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css?family=Jost&display=swap" rel="stylesheet">
+    <style>
+        .search-form input[type="text"]::placeholder {
+            /* Reset all placeholder styles */
+            color: inherit;
+            opacity: 1;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1em;
+            /* Set the font size to the default value */
+            letter-spacing: normal;
+            text-align: left;
+        }
+
+        .search-form input[type="text"] {
+            /* Reset border and padding styles */
+            border: initial;
+            padding: initial;
+        }
+
+        /* Optional: Add focus styles for better user experience */
+        .search-form input[type="text"]:focus {
+            border-color: #FF5A5F;
+            /* Change the color to highlight when the input is focused */
+            outline: none;
+            /* Remove the default outline */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .search-form {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .search-form input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            background-color: #ff5a5f;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .search-results {
+            list-style: none;
+            padding: 0;
+        }
+
+        .search-results li {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* .14_220 { 
+	    overflow:hidden;
+        } */
+        /* .14_230 { 
+	overflow:hidden;
+} */
+        .e14_230 {
+            background-color: rgba(255, 243.10919165611267, 243.10919165611267, 1);
+            width: 1512px;
+            height: 982px;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .e14_330 {
+            width: 1512px;
+            height: 849px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_231 {
+            width: 1512px;
+            height: 118px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_232 {
+            background-color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 1512px;
+            height: 118px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_233 {
+            width: 598px;
+            height: 79px;
+            position: absolute;
+            left: 457px;
+            top: 39px;
+        }
+
+        .e14_234 {
+            color: rgba(255, 243.10919165611267, 243.10919165611267, 1);
+            width: 598px;
+            height: 79px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 36px;
+            letter-spacing: 0;
+        }
+
+        .e14_235 {
+            width: 386px;
+            height: 65.06521606445312px;
+            position: absolute;
+            left: 519px;
+            top: 354px;
+        }
+
+        .e14_236 {
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            background-color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 386px;
+            height: 65.06521606445312px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .e14_237 {
+            width: 145px;
+            height: 53px;
+            position: absolute;
+            left: 121px;
+            top: 12px;
+        }
+
+        .e14_238 {
+            color: rgba(255, 243.10919165611267, 243.10919165611267, 1);
+            width: 145px;
+            height: 53px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-family: Jost;
+            text-align: center;
+            font-size: 25px;
+            letter-spacing: 0;
+        }
+
+        .e14_239 {
+            width: 1140px;
+            height: 160px;
+            position: absolute;
+            left: 180px;
+            top: 150px;
+        }
+
+        .e14_240 {
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 89px;
+        }
+
+        .e14_241 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_242 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 67.69013977050781px;
+            height: 37.82500076293945px;
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_243 {
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 231px;
+            top: 89px;
+        }
+
+        .e14_244 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_245 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 116px;
+            height: 38px;
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_246 {
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 462px;
+            top: 89px;
+        }
+
+        .e14_247 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_248 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 146px;
+            height: 38px;
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_249 {
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 693px;
+            top: 89px;
+        }
+
+        .e14_250 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_251 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 67.69013977050781px;
+            height: 37.82500076293945px;
+            position: absolute;
+            left: 19px;
+            top: 18px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_252 {
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 924px;
+            top: 91px;
+        }
+
+        .e14_253 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 216px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_254 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 126px;
+            height: 38px;
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_255 {
+            width: 737px;
+            height: 69px;
+            position: absolute;
+            left: 181px;
+            top: 0px;
+        }
+
+        .e14_256 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 737px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border: 1px solid rgba(255, 90.00000223517418, 95.00000193715096, 1);
+        }
+
+        /* .14_256 { 
+	border:1px solid rgba(255, 90.00000223517418, 95.00000193715096, 1);
+} */
+        .e14_257 {
+            color: rgba(172.00000494718552, 177.0000046491623, 198.00000339746475, 1);
+            width: 363.3961181640625px;
+            height: 37.82500076293945px;
+            position: absolute;
+            left: 41.137306213378906px;
+            top: 22.25px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 0;
+        }
+
+        .e14_258 {
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 86px;
+            top: 491px;
+        }
+
+        .e14_259 {
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_260 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_261 {
+            color: rgba(30.00000011175871, 30.00000011175871, 30.00000011175871, 1);
+            width: 577.7605590820312px;
+            height: 71.94767761230469px;
+            position: absolute;
+            left: 34.11971664428711px;
+            top: 31.9766845703125px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 25px;
+            letter-spacing: 0;
+        }
+
+        .e14_262 {
+            width: 378.7288818359375px;
+            height: 90px;
+            position: absolute;
+            left: 10px;
+            top: 82px;
+        }
+
+        .e14_263 {
+            width: 567px;
+            height: 90px;
+            position: absolute;
+            left: 22px;
+            top: 0px;
+        }
+
+        .e14_264 {
+            color: rgba(66.00000366568565, 68.00000354647636, 93.00000205636024, 1);
+            width: 123px;
+            height: 26px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 18px;
+            letter-spacing: 0;
+        }
+
+        .e14_265 {
+            color: rgba(66.00000366568565, 68.00000354647636, 93.00000205636024, 1);
+            width: 567px;
+            height: 63px;
+            position: absolute;
+            left: 0px;
+            top: 27px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: px;
+        }
+
+        .e14_266 {
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 30px;
+            top: 194px;
+        }
+
+        .ei14_266_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_266_13_116_51_64 {
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_266_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 211px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_266_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 239px;
+            top: 12px;
+        }
+
+        .e14_267 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 325px;
+            top: 194px;
+        }
+
+        .ei14_267_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_267_13_116_51_64 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_267_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 214px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_267_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 242px;
+            top: 12px;
+        }
+
+        .e14_268 {
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 30px;
+            top: 259px;
+        }
+
+        .ei14_268_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_268_13_116_51_64 {
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_268_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 213px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_268_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 241px;
+            top: 12px;
+        }
+
+        .e14_269 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 325px;
+            top: 259px;
+        }
+
+        .ei14_269_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_269_13_116_51_64 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_269_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 214px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_269_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 242px;
+            top: 12px;
+        }
+
+        .e14_270 {
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 779px;
+            top: 491px;
+        }
+
+        .e14_271 {
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_272 {
+            background-color: rgba(254.00000005960464, 253.0000001192093, 254.00000005960464, 1);
+            width: 646px;
+            height: 358px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .e14_273 {
+            color: rgba(30.00000011175871, 30.00000011175871, 30.00000011175871, 1);
+            width: 577.7605590820312px;
+            height: 71.94767761230469px;
+            position: absolute;
+            left: 34.11971664428711px;
+            top: 31.9766845703125px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 25px;
+            letter-spacing: 0;
+        }
+
+        .e14_274 {
+            width: 378.7288818359375px;
+            height: 90px;
+            position: absolute;
+            left: 10px;
+            top: 82px;
+        }
+
+        .e14_275 {
+            width: 567px;
+            height: 90px;
+            position: absolute;
+            left: 22px;
+            top: 0px;
+        }
+
+        .e14_276 {
+            color: rgba(66.00000366568565, 68.00000354647636, 93.00000205636024, 1);
+            width: 123px;
+            height: 26px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 18px;
+            letter-spacing: 0;
+        }
+
+        .e14_277 {
+            color: rgba(66.00000366568565, 68.00000354647636, 93.00000205636024, 1);
+            width: 567px;
+            height: 63px;
+            position: absolute;
+            left: 0px;
+            top: 27px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: px;
+        }
+
+        .e14_278 {
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 30px;
+            top: 194px;
+        }
+
+        .ei14_278_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_278_13_116_51_64 {
+            width: 279px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_278_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 211px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_278_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 239px;
+            top: 12px;
+        }
+
+        .e14_279 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 325px;
+            top: 194px;
+        }
+
+        .ei14_279_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_279_13_116_51_64 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_279_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 214px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_279_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 242px;
+            top: 12px;
+        }
+
+        .e14_280 {
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 30px;
+            top: 259px;
+        }
+
+        .ei14_280_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_280_13_116_51_64 {
+            width: 281px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_280_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 213px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_280_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 241px;
+            top: 12px;
+        }
+
+        .e14_281 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 325px;
+            top: 259px;
+        }
+
+        .ei14_281_13_116 {
+            background-color: rgba(224.000001847744, 224.000001847744, 224.000001847744, 0.5);
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_281_13_116_51_64 {
+            width: 282px;
+            height: 48px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .ei14_281_13_116_51_66 {
+            color: rgba(255, 90.00000223517418, 95.00000193715096, 1);
+            width: 214px;
+            height: 24px;
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            font-family: Jost;
+            text-align: left;
+            font-size: 16px;
+            letter-spacing: 5;
+        }
+
+        .ei14_281_13_116_51_67 {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 242px;
+            top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <header>
+        <h1>Search Engine</h1>
+    </header> -->
+
+    <div class=e14_230>
+        <div class=e14_330>
+            <div class=e14_231>
+                <div class="e14_232"></div>
+                <div class=e14_233><span class="e14_234">Airbnb Enhanced Search Engine</span></div>
+            </div>
+
+            <!-- BUTTON -->
+            <div class=e14_235>
+                <div class="e14_236"></div>
+                <div class=e14_237>
+                    <span class="e14_238">
+                        <button type="submit"><i class="fas fa-search"></i> Search</button>
+                    </span></div>
+            </div>
+
+            <!-- FORM -->
+            <form class="search-form" action="/" method="POST">
+                <div class=e14_239>
+                    <div class="e14_255">
+                        <div class="e14_256">
+                            <label for="input_sentence">TOPTOP:</label>
+                            <input type="text" id="input_sentence" name="input_sentence">
+                            <input type="submit" value="Search">
+                        </div>
+                    <!-- </div>
+                        <span class="e14_257">
+                            <input type="text" name="text_input" placeholder="Enter text">
+                        </span>
+                    </div> -->
+           
+                    <!-- USER INPUT -->
+                    <div class=e14_240>
+                        <div class="e14_241"></div>
+                            <span class="e14_242">
+                                <label for="input_sentence">Enter a Sentence:</label>
+                                <input type="text" id="input_sentence" name="input_sentence">
+                                <input type="submit" value="Search">
+                            </span>
+                    </div>
+                    <!-- MORE SELECTION -->
+
+                    
+                    <div class="e14_252">
+                        <div class="e14_253"></div><span class="e14_254">
+                            <label for="room_type">Beds:</label>
+                            <select name="beds" id="beds">
+                                <option value="">Select Beds</option>
+                                {% for bed in unique_beds %}
+                                    <option value="{{ bed }}">{{ bed }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+
+
+                    <div class="e14_243">
+                        <div class="e14_244"></div><span class="e14_245">
+                            <label for="room_type">Room Type:</label>
+                            <select name="room_type" id="room_type">
+                                <option value="">Select Room Type</option>
+                                {% for room_type in unique_room_types %}
+                                    <option value="{{ room_type }}">{{ room_type }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+
+                    <div class="e14_246">
+                        <div class="e14_247"></div><span class="e14_248">
+                            <label for="country">Country:</label>
+                            <select name="country" id="country">
+                                <option value="">Select Country</option>
+                                {% for country in unique_countries %}
+                                    <option value="{{ country }}">{{ country }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+
+                    <div class="e14_249">
+                        <div class="e14_250"></div><span class="e14_251">
+                            <label for="city">City:</label>
+                            <select name="city" id="city">
+                                <option value="">Select City</option>
+                                {% for city in unique_cities %}
+                                    <option value="{{ city }}">{{ city }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div> 
+
+                </div>
+
+
+
+                <!-- <div class=e14_243>
+                  <div class="e14_244"></div><span  class="e14_245">
+                    <input type="text" name="text_input" placeholder="Enter text">
+                  </span>
+                </div>
+                <div class=e14_246>
+                  <div class="e14_247"></div><span  class="e14_248">
+                    <input type="text" name="text_input" placeholder="Enter text">
+                  </span>
+                </div>
+                <div class=e14_249>
+                  <div class="e14_250"></div><span  class="e14_251">
+                    <input type="text" name="text_input" placeholder="Enter text">
+                  </span>
+                </div>
+                <div class=e14_252>
+                  <div class="e14_253"></div><span  class="e14_254">
+                    <input type="text" name="text_input" placeholder="Enter text">
+                  </span>
+                </div>
+                <div class=e14_255>
+                  <div class="e14_256"></div><span  class="e14_257">
+                    <input type="text" name="text_input" placeholder="Enter text">
+                  </span>
+                </div> -->
+        </div>
+        </form>
+        <div class=e14_258>
+            <div class=e14_259>
+                <div class="e14_260"></div><span class="e14_261">Luxurious 3 bedroom, centrum, 180m2</span>
+                <div class=e14_262>
+                    <div class=e14_263><span class="e14_264">Summarize Text</span><span class="e14_265">Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit. Aliquet pretium sit odio non. Aenean dolor,
+                            ullamcorper amet dolor donec. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Aliquet pretium sit odio non. Aenean dolor, ullamcorper amet dolor donec. </span></div>
+                </div>
+            </div>
+            <div class=e14_266>
+                <div class=ei14_266_13_116>
+                    <div class=ei14_266_13_116_51_64><span class="ei14_266_13_116_51_66">keyword 1 beautiful view</span>
+                        <div class=ei14_266_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_267>
+                <div class=ei14_267_13_116>
+                    <div class=ei14_267_13_116_51_64><span class="ei14_267_13_116_51_66">keyword 2 beautiful view</span>
+                        <div class=ei14_267_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_268>
+                <div class=ei14_268_13_116>
+                    <div class=ei14_268_13_116_51_64><span class="ei14_268_13_116_51_66">keyword 3 beautiful view</span>
+                        <div class=ei14_268_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_269>
+                <div class=ei14_269_13_116>
+                    <div class=ei14_269_13_116_51_64><span class="ei14_269_13_116_51_66">keyword 4 beautiful view</span>
+                        <div class=ei14_269_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=e14_270>
+            <div class=e14_271>
+                <div class="e14_272"></div><span class="e14_273">Luxurious 3 bedroom, centrum, 180m2</span>
+                <div class=e14_274>
+                    <div class=e14_275><span class="e14_276">Summarize Text</span><span class="e14_277">Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit. Aliquet pretium sit odio non. Aenean dolor,
+                            ullamcorper amet dolor donec. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Aliquet pretium sit odio non. Aenean dolor, ullamcorper amet dolor donec. </span></div>
+                </div>
+            </div>
+            <div class=e14_278>
+                <div class=ei14_278_13_116>
+                    <div class=ei14_278_13_116_51_64><span class="ei14_278_13_116_51_66">keyword 1 beautiful view</span>
+                        <div class=ei14_278_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_279>
+                <div class=ei14_279_13_116>
+                    <div class=ei14_279_13_116_51_64><span class="ei14_279_13_116_51_66">keyword 2 beautiful view</span>
+                        <div class=ei14_279_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_280>
+                <div class=ei14_280_13_116>
+                    <div class=ei14_280_13_116_51_64><span class="ei14_280_13_116_51_66">keyword 3 beautiful view</span>
+                        <div class=ei14_280_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+            <div class=e14_281>
+                <div class=ei14_281_13_116>
+                    <div class=ei14_281_13_116_51_64><span class="ei14_281_13_116_51_66">keyword 4 beautiful view</span>
+                        <div class=ei14_281_13_116_51_67></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- ALL PREV CODE GOES HERE
+    <div class=e14_220>
+        <div class="e10_64"></div>
+        <div class=e10_65><span  class="e10_66">Airbnb Enhanced Search Engine</span></div>
+    </div>
+
+
+
+    <div class="container">
+
+        <form class="search-form" action="/" method="POST">
+            <input type="text" name="text_input" placeholder="Enter text">
+            <input type="text" name="country" placeholder="Country">
+            <input type="text" name="city" placeholder="City">
+            <input type="text" name="bathrooms" placeholder="Bathrooms">
+            <input type="text" name="beds" placeholder="Beds">
+            <input type="text" name="roomtype" placeholder="Room Type">
+            <button type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+
+        {% if results %}
+            <h2>Search Results:</h2>
+            <ul class="search-results">
+                {% for result in results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    
+    </div> -->
+
+</body>
+
+</html>

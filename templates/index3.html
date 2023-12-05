@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Search</title>
+    <link href="https://fonts.googleapis.com/css?family=Jost&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Open Sans;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+
+        }
+        .container {
+            width: 100%;
+			height: 100vh;
+            margin: auto;
+            overflow: hidden;
+            /* padding: 20px; */
+			padding-top: 0px;
+			top:79px;
+			/* background-image:url('../templates/bg2.webp'); */
+			background-image:url('../static/images/bg1.webp');
+			background-repeat:no-repeat;
+			background-size:cover;
+            
+        }
+        form {
+            width: 80vh;
+            background: #fff;
+            padding: 5vh;
+            margin-top: 15vh;
+            margin-left: 10vh;
+            margin-bottom: 10vh;
+        }
+
+        label {
+            margin-top: 1vh;
+            display: block;
+            width: 100%;
+            font-family: Open Sans;
+            font-size: 2vh;
+        }
+
+        select, input[type="text"] {
+            margin-top: 1vh;
+            display: block;
+            width: 100%;
+            font-family: Open Sans;
+            font-size: 2vh;
+            border: rgb(19, 123, 123) dashed ;
+            border-radius: 10px; 
+            padding-left: 1.5vw;
+            height: 7vh;
+            color: rgb(45, 59, 31);
+        }
+
+
+        input[type="submit"] {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 5vh;
+            width:100%;
+            height: 7vh;
+            font-size: 2vh;
+
+        }
+
+        input[type="submit"]:hover {
+            background: #444;
+        }
+        .heading {
+            color:rgba(41.73334680497646, 41.562257185578346, 41.562257185578346, 1);
+            width:100%;
+            font-family:Jost;
+            text-align:left;
+            font-size:4vh;
+            letter-spacing:0;
+            line-height:px;
+        }
+
+        label {
+            color:rgba(30.00000011175871, 30.00000011175871, 30.00000011175871, 1);
+            /* width:2.1vh; */
+            height:3.8vh;
+            font-family:Open Sans;
+            text-align:left;
+            font-size:2vh;
+            letter-spacing:0;
+            margin-top: 2vh;
+        }
+
+        #city {
+            width: 15vw;
+            top: 46vh;
+            left: 23vw;
+            position: absolute;
+        }
+
+
+        #country {
+            width: 15vw;
+            /* top: 42vh;
+            position: absolute; */
+        }
+
+        #beds {
+            width: 15vw;
+            top: 59.6vh;
+            left: 23vw;
+            position: absolute;
+        }
+
+
+        #room_type {
+            width: 15vw;
+            /* top: 42vh;
+            position: absolute; */
+        }
+
+        #input_sentence{
+            width: 94.2%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="{{ url_for('results') }}" method="get">
+            <div class = "heading">
+                Book unique place to stay and things to do
+            </div>
+
+            <label for="input_sentence">Enter a Sentence:</label>
+            <input type="text" id="input_sentence" name="input_sentence">
+
+            <label for="country">Location:</label>
+            <select name="country" id="country">
+                <option value="">Select Country</option>
+                {% for country in unique_countries %}
+                    <option value="{{ country }}">{{ country }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="city" id="city">City:</label>
+            <select name="city" id="city">
+                <option value="">Select City</option>
+                {% for city in unique_cities %}
+                    <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+
+
+            <!-- <label for="beds"></label> -->
+            <select name="beds" id="beds">
+                <option value="">Select Beds</option>
+                {% for bed in unique_beds %}
+                    <option value="{{ bed }}">{{ bed }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="room_type">Room Preference:</label>
+            <select name="room_type" id="room_type">
+                <option value="">Select Room Type</option>
+                {% for room_type in unique_room_types %}
+                    <option value="{{ room_type }}">{{ room_type }}</option>
+                {% endfor %}
+            </select>
+
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>
